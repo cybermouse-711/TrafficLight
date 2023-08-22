@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var labelButton = "NEXT"
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack{
+            VStack {
+                TrafficLightCircle(color: .red)
+                TrafficLightCircle(color: .yellow)
+                TrafficLightCircle(color: .green)
+            }
+            
+            Spacer()
+            
+            Button(action: {}) {
+                Text("\(labelButton)")
+                    .font(.title)
+                    .foregroundColor(.white)
+            }
+            .frame(width: 150, height: 50)
+            .background(Color.gray)
+            .clipShape(Capsule())
+            .overlay(Capsule().stroke(Color.white, lineWidth: 3))
+            .shadow(radius: 10)
         }
-        .padding()
+        .padding(EdgeInsets(top: 40, leading: 0, bottom: 40, trailing: 0))
     }
 }
 

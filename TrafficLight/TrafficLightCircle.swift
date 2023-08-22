@@ -13,7 +13,7 @@ struct TrafficLightCircle: View {
     var body: some View {
         Circle()
             .foregroundColor(color)
-            .frame(width: 150)
+            .frame(width: 120)
             .overlay(Circle().stroke(Color.white, lineWidth: 3))
             .shadow(radius: 10)
     }
