@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TrafficLightCircle: View {
-    let color: Color
+    var color: Color
     
     var body: some View {
         Circle()
