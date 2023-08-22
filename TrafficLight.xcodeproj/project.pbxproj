@@ -11,6 +11,7 @@
 		C62C008D2A95470100333B32 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62C008C2A95470100333B32 /* ContentView.swift */; };
 		C62C008F2A95470300333B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62C008E2A95470300333B32 /* Assets.xcassets */; };
 		C62C00922A95470300333B32 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62C00912A95470300333B32 /* Preview Assets.xcassets */; };
+		C62C00992A95483D00333B32 /* TrafficLightCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62C00982A95483D00333B32 /* TrafficLightCircle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		C62C008C2A95470100333B32 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C62C008E2A95470300333B32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C62C00912A95470300333B32 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C62C00982A95483D00333B32 /* TrafficLightCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				C62C008A2A95470100333B32 /* TrafficLightApp.swift */,
 				C62C008C2A95470100333B32 /* ContentView.swift */,
+				C62C00982A95483D00333B32 /* TrafficLightCircle.swift */,
 				C62C008E2A95470300333B32 /* Assets.xcassets */,
 				C62C00902A95470300333B32 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62C00992A95483D00333B32 /* TrafficLightCircle.swift in Sources */,
 				C62C008D2A95470100333B32 /* ContentView.swift in Sources */,
 				C62C008B2A95470100333B32 /* TrafficLightApp.swift in Sources */,
 			);
