@@ -7,8 +7,13 @@
 
 import SwiftUI
 
+enum StateColor {
+    case red, yellow, green
+}
+
 struct ContentView: View {
-    @State private var labelButton = "NEXT"
+    private var stateColor = StateColor.red
+    @State private var labelButton = "START"
     
     var body: some View {
         VStack{
@@ -20,7 +25,7 @@ struct ContentView: View {
             
             Spacer()
             
-            Button(action: {}) {
+            Button(action: changedColor) {
                 Text("\(labelButton)")
                     .font(.title)
                     .foregroundColor(.white)
@@ -32,6 +37,21 @@ struct ContentView: View {
             .shadow(radius: 10)
         }
         .padding(EdgeInsets(top: 40, leading: 0, bottom: 40, trailing: 0))
+    }
+    
+    private func changedColor() {
+        if labelButton == "START" {
+            labelButton = "NEXT"
+        }
+        
+        switch stateColor {
+        case .red:
+            <#code#>
+        case .yellow:
+            <#code#>
+        case .green:
+            <#code#>
+        }
     }
 }
 
