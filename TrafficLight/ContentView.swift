@@ -11,12 +11,17 @@ enum StateColor {
     case red, yellow, green
 }
 
+enum StateOn: Double {
+    case on = 1.0
+    case off = 0.5
+}
+
 struct ContentView: View {
     
     @State private var stateColor = StateColor.red
-    @State private var redColor = TrafficLightCircle(color: .red)
-    @State private var yellowColor = TrafficLightCircle(color: .yellow)
-    @State private var greenColor = TrafficLightCircle(color: .green)
+    @State private var redColor = TrafficLightCircle(color: .red.opacity(StateOn.off.rawValue))
+    @State private var yellowColor = TrafficLightCircle(color: .yellow.opacity(StateOn.off.rawValue))
+    @State private var greenColor = TrafficLightCircle(color: .green.opacity(StateOn.off.rawValue))
     
     @State private var labelButton = "START"
     
@@ -51,16 +56,16 @@ struct ContentView: View {
         
         switch stateColor {
         case .red:
-            greenColor.color = .green
-            redColor.color = .gray
+            greenColor.color = .green.opacity(StateOn.off.rawValue)
+            redColor.color = .red.opacity(StateOn.on.rawValue)
             stateColor = .yellow
         case .yellow:
-            redColor.color = .red
-            yellowColor.color = .gray
+            redColor.color = .red.opacity(StateOn.off.rawValue)
+            yellowColor.color = .yellow.opacity(StateOn.on.rawValue)
             stateColor = .green
         case .green:
-            yellowColor.color = .yellow
-            greenColor.color = .gray
+            yellowColor.color = .yellow.opacity(StateOn.off.rawValue)
+            greenColor.color = .green.opacity(StateOn.on.rawValue)
             stateColor = .red
         }
     }
