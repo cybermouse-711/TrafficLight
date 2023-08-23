@@ -12,12 +12,13 @@ enum StateColor {
 }
 
 struct ContentView: View {
-    @State private var labelButton = "START"
     
-    private var stateColor = StateColor.red
-    private var redColor = TrafficLightCircle(color: .red)
-    private var yellowColor = TrafficLightCircle(color: .yellow)
-    private var greenColor = TrafficLightCircle(color: .green)
+    @State private var stateColor = StateColor.red
+    @State private var redColor = TrafficLightCircle(color: .red)
+    @State private var yellowColor = TrafficLightCircle(color: .yellow)
+    @State private var greenColor = TrafficLightCircle(color: .green)
+    
+    @State private var labelButton = "START"
     
     var body: some View {
         VStack{
@@ -42,8 +43,8 @@ struct ContentView: View {
         }
         .padding(EdgeInsets(top: 40, leading: 0, bottom: 40, trailing: 0))
     }
-    
-    private mutating func changedColor() {
+
+    private func changedColor() {
         if labelButton == "START" {
             labelButton = "NEXT"
         }
