@@ -11,26 +11,22 @@ enum StateColor {
     case red, yellow, green
 }
 
-enum StateOn: Double {
-    case on = 1.0
-    case off = 0.5
-}
-
 struct ContentView: View {
     
     @State private var stateColor = StateColor.red
-    @State private var redColor = TrafficLightCircle(color: .red.opacity(StateOn.off.rawValue))
-    @State private var yellowColor = TrafficLightCircle(color: .yellow.opacity(StateOn.off.rawValue))
-    @State private var greenColor = TrafficLightCircle(color: .green.opacity(StateOn.off.rawValue))
+    
+    @State private var redColorState = 0.5
+    @State private var yellowColorState = 0.5
+    @State private var greenColorState = 0.5
     
     @State private var labelButton = "START"
     
     var body: some View {
         VStack{
             VStack {
-                redColor
-                yellowColor
-                greenColor
+                TrafficLightCircle(color: .red, opassity: redColorState)
+                TrafficLightCircle(color: .yellow, opassity: yellowColorState)
+                TrafficLightCircle(color: .green, opassity: greenColorState)
             }
             
             Spacer()
@@ -50,22 +46,26 @@ struct ContentView: View {
     }
 
     private func changedColor() {
+        let offState = 0.5
+        let onState = 1.0
+        
         if labelButton == "START" {
             labelButton = "NEXT"
         }
         
+        
         switch stateColor {
         case .red:
-            greenColor.color = .green.opacity(StateOn.off.rawValue)
-            redColor.color = .red.opacity(StateOn.on.rawValue)
+            greenColorState = offState
+            redColorState = onState
             stateColor = .yellow
         case .yellow:
-            redColor.color = .red.opacity(StateOn.off.rawValue)
-            yellowColor.color = .yellow.opacity(StateOn.on.rawValue)
+            redColorState = offState
+            yellowColorState = onState
             stateColor = .green
         case .green:
-            yellowColor.color = .yellow.opacity(StateOn.off.rawValue)
-            greenColor.color = .green.opacity(StateOn.on.rawValue)
+            yellowColorState = offState
+            greenColorState = onState
             stateColor = .red
         }
     }
