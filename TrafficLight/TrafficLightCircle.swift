@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct TrafficLightCircle: View {
-    var color: Color
-    var opassity: Double
+    let color: Color
+    let opacity: Double
     
     var body: some View {
         Circle()
-            .frame(width: 120)
+            .frame(width: 150)
             .foregroundColor(color)
-            .opacity(opassity)
-            .overlay(Circle().stroke(Color.white, lineWidth: 3))
-            .shadow(radius: 10)
+            .opacity(opacity)
+            .overlay(Circle().stroke(Color.black, lineWidth: 4))
     }
 }
 
 struct TrafficLightCircle_Previews: PreviewProvider {
     static var previews: some View {
-        TrafficLightCircle(color: .gray, opassity: 0.5)
+        TrafficLightCircle(color: .gray, opacity: 1)
     }
 }
+

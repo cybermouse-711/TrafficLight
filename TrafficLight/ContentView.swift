@@ -7,66 +7,53 @@
 
 import SwiftUI
 
-enum StateColor {
-    case red, yellow, green
+enum StateOn {
+    case off, red, yellow, green
 }
 
 struct ContentView: View {
-    
-    @State private var stateColor = StateColor.red
-    
-    @State private var redColorState = 0.5
-    @State private var yellowColorState = 0.5
-    @State private var greenColorState = 0.5
-    
-    @State private var labelButton = "START"
+    @State private var buttonTitle = "START"
+    @State private var currentLight: StateOn = .off
     
     var body: some View {
         VStack{
             VStack {
-                TrafficLightCircle(color: .red, opassity: redColorState)
-                TrafficLightCircle(color: .yellow, opassity: yellowColorState)
-                TrafficLightCircle(color: .green, opassity: greenColorState)
+                TrafficLightCircle(
+                    color: .red,
+                    opacity: currentLight == .red ? 1 : 0.5
+                )
+                TrafficLightCircle(
+                    color: .yellow,
+                    opacity: currentLight == .yellow ? 1 : 0.5
+                )
+                TrafficLightCircle(
+                    color: .green,
+                    opacity: currentLight == .green ? 1 : 0.5
+                )
             }
-            
             Spacer()
             
-            Button(action: changedColor) {
-                Text("\(labelButton)")
-                    .font(.title)
-                    .foregroundColor(.white)
+            StartButtonView(title: buttonTitle) {
+                if buttonTitle == "START" {
+                    buttonTitle = "NEXT"
+                }
+                nextColor()
             }
-            .frame(width: 150, height: 50)
-            .background(Color.gray)
-            .clipShape(Capsule())
-            .overlay(Capsule().stroke(Color.white, lineWidth: 3))
-            .shadow(radius: 10)
         }
-        .padding(EdgeInsets(top: 40, leading: 0, bottom: 40, trailing: 0))
+        .padding()
     }
-
-    private func changedColor() {
-        let offState = 0.5
-        let onState = 1.0
+    
+    private func nextColor() {
         
-        if labelButton == "START" {
-            labelButton = "NEXT"
-        }
-        
-        
-        switch stateColor {
+        switch currentLight {
+        case .off:
+            currentLight = .red
         case .red:
-            greenColorState = offState
-            redColorState = onState
-            stateColor = .yellow
+            currentLight = .yellow
         case .yellow:
-            redColorState = offState
-            yellowColorState = onState
-            stateColor = .green
+            currentLight = .green
         case .green:
-            yellowColorState = offState
-            greenColorState = onState
-            stateColor = .red
+            currentLight = .red
         }
     }
 }
